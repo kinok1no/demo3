@@ -85,175 +85,86 @@
         <div id="message-area" class="mt-6"></div>
     </div>
 
-    <!-- ===== JavaScriptのコードです ===== -->
-    <script>
-        const mainHeading = document.getElementById('main-heading');
-        const actionButton = document.getElementById('action-button');
-        const messageArea = document.getElementById('message-area');
-
-        actionButton.addEventListener('click', function() {
-            mainHeading.textContent = 'ボタンがクリックされました！';
-            messageArea.innerHTML = '';
-            const newMessage = document.createElement('p');
-            newMessage.textContent = 'これはJavaScriptによって動的に追加されたテキストです。';
-            newMessage.className = 'text-green-700 bg-green-100 p-4 rounded-lg fade-in';
-            messageArea.appendChild(newMessage);
-            actionButton.textContent = 'ありがとう！';
-            actionButton.disabled = true;
-            actionButton.classList.remove('bg-blue-500', 'hover:bg-blue-700');
-            actionButton.classList.add('bg-gray-400', 'cursor-not-allowed');
-        });
-    </script>
-
-    <script>
+<script>
   (function(){
-    // --- 各要素の作成 ---
-    var widgetContainer = document.createElement('div');
-    widgetContainer.id = 'area-5e74be00';
-
-    var title = document.createElement('p');
-    title.innerText = '💬 HelpNAVi';
-
-    var iframe = document.createElement('iframe');
-    iframe.id = 'frame-5e74be00';
-    iframe.classList.add('close-5e74be00');
-    iframe.allow = "microphone *";
-
-    // --- 入力欄とボタンの作成 ---
-    var inputContainer = document.createElement('div');
-    inputContainer.id = 'input-container-5e74be00';
-
-    var inputField = document.createElement('input');
-    inputField.type = 'text';
-    inputField.placeholder = 'ご質問をどうぞ...';
-    inputField.id = 'chat-input-5e74be00';
-
-    var openButton = document.createElement('button');
-    openButton.id = 'chat-open-button-5e74be00';
-    openButton.innerText = 'チャットを開始';
-
-    // --- 要素の組み立て ---
-    inputContainer.appendChild(inputField);
-    inputContainer.appendChild(openButton);
-
-    widgetContainer.appendChild(title);
-    widgetContainer.appendChild(inputContainer);
-    widgetContainer.appendChild(iframe);
-
-    // --- イベントリスナーの設定 ---
-    // 「チャットを開始」ボタンのクリックイベント
-    openButton.addEventListener('click', function(event) {
-      event.stopPropagation(); // 親要素へのイベント伝播を停止
-      
-      var _f = document.getElementById('frame-5e74be00');
-      if (_f.src === '') {
-        _f.src = 'https://ijuken.com/faq/user/client/cbts-travel';
+    var a = document.createElement('div');
+    a.id = 'area-2a8f351d';
+    a.classList.add('close-2a8f351d');
+    var f = document.createElement('iframe');
+    f.id = 'frame-2a8f351d';
+    f.allow = "microphone *";
+    var t = document.createElement('p');
+    t.innerText = 'ZOSS School'
+    a.appendChild(t);
+    var d = document.createElement('div');
+    d.innerText = '質問を入力してください'
+    a.appendChild(d);
+    a.appendChild(f);
+    a.addEventListener('click', function(){
+      var _f = document.getElementById('frame-2a8f351d');
+      if (_f.src == '') {
+        _f.src = 'https://ijuken.com/faq/user/client/global-p';
       }
-      
-      // iframeを表示し、入力欄を非表示にする
-      _f.classList.remove('close-5e74be00');
-      document.getElementById('input-container-5e74be00').style.display = 'none';
-      
-      // タイトルをクリックで閉じられるように案内
-      title.innerText = '💬 HelpNAVi (クリックで閉じる)';
-    });
-
-    // タイトル部分をクリックしてチャットを閉じるイベント
-    title.addEventListener('click', function() {
-      var _f = document.getElementById('frame-5e74be00');
-      // iframeが開いている場合のみ動作
-      if (!_f.classList.contains('close-5e74be00')) {
-        _f.classList.add('close-5e74be00');
-        document.getElementById('input-container-5e74be00').style.display = 'block';
-        title.innerText = '💬 HelpNAVi'; // タイトルを元に戻す
+      var _a = document.getElementById('area-2a8f351d');
+      if (_a.classList.contains('close-2a8f351d')) {
+        _a.classList.remove('close-2a8f351d');
+        _a.classList.add('open-2a8f351d');
+      } else {
+        _a.classList.remove('open-2a8f351d');
+        _a.classList.add('close-2a8f351d');
       }
     });
-
-    document.body.appendChild(widgetContainer);
+    document.body.appendChild(a);
   })();
 </script>
 <style>
-  #area-5e74be00 {
+  #area-2a8f351d {
     position: fixed;
     right: 10px;
     bottom: 10px;
     z-index: 9999;
-    border: 5px solid #2563eb;
-    border-radius: 10px;
-    /* cursor: pointer; はタイトルに移動 */
-    background-color: #fff;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    transition: all 0.2s ease-in-out;
-    width: 360px; /* iframeの幅(350px) + border(5px*2) */
-    box-sizing: border-box;
-  }
-  #area-5e74be00:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  }
-  #area-5e74be00:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  #area-5e74be00 > p {
-    text-align: center;
-    color: #fff;
-    padding: 3px 10px;
-    margin: 0;
-    font-weight: bold;
-    background-color: #2563eb;
-    cursor: pointer; /* 閉じる操作ができることを示す */
-  }
-  #frame-5e74be00 {
-    width: 100%; /* 親要素の幅に合わせる */
-    border: none;
-    display: block; /* アニメーションとマージンのためにblock要素にする */
-    box-sizing: border-box;
-    /* --- アニメーションのためのスタイル --- */
-    height: calc(70vh - 5px); /* heightはレイアウト安定のために維持 */
-    overflow: hidden; /* max-heightアニメーションに必須 */
-    transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out, margin-top 0.4s ease-in-out;
-    opacity: 1;
-    max-height: 70vh; /* 開いた状態の高さ */
-    margin-top: 5px; /* ヘッダーとの間に少し余白を追加 */
-  }
-  #frame-5e74be00.close-5e74be00 {
-    opacity: 0;
-    max-height: 0;
-    margin-top: 0;
-  }
-  /* --- 入力欄関連のスタイル --- */
-  #input-container-5e74be00 {
-    padding: 15px;
-    display: block; /* 初期表示 */
-  }
-  #chat-input-5e74be00 {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-    font-size: 16px;
-  }
-  #chat-open-button-5e74be00 {
-    width: 100%;
-    padding: 12px;
-    background-color: #2563eb;
-    color: white;
-    border: none;
+    border: 5px solid #00afec;
     border-radius: 5px;
     cursor: pointer;
-    font-weight: bold;
-    font-size: 16px;
-    transition: background-color 0.2s;
   }
-  #chat-open-button-5e74be00:hover {
-    background-color: #1d4ed8;
+  #area-2a8f351d > p {
+    text-align: center;
+    color: #ffffff;
+    padding: 5px 10px;
+    margin: 0;
+    font-weight: bold;
+    background-color: #00afec;
+    max-width: 320px;
+    min-width: 200px;
+  }
+  #area-2a8f351d > div {
+    color: #888888;
+    padding: 5px 10px;
+    margin: 0;
+    background-color: #ffffff;
+  }
+  #frame-2a8f351d {
+    width: 320px;
+    height: calc(70vh - 5px);
+    border: none;
+    display: block;
+  }
+  #area-2a8f351d.close-2a8f351d #frame-2a8f351d {
+    display: none;
+  }
+  #area-2a8f351d.open-2a8f351d > div {
+    display: none;
+  }
+  #area-2a8f351d.from-right-2a8f351d.close-2a8f351d {
+    right: 0;
+  }
+  #area-2a8f351d.from-right-2a8f351d.close-2a8f351d > p {
+    width: 40px;
+    padding: 30px 15px;
+    min-width: auto;
+    word-break: break-all;
   }
 </style>
-
 
 </body>
 </html>
