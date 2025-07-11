@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<!-- この宣言は、このファイルがHTML5文書であることをブラウザに伝えます -->
+<html lang="ja">
+<!-- lang="ja"は、このページの主要な言語が日本語であることを示します -->
+
+<head>
+    <!-- <head>セクションには、ページに関する情報（メタデータ）や設定を記述します -->
+    <meta charset="UTF-8">
+    <!-- 文字エンコーディングをUTF-8に設定します。これにより、日本語などの多言語が正しく表示されます -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- スマートフォンなど、さまざまなデバイスでページが正しく表示されるようにするための設定です -->
+    <title>YouTube動画付きの動的なページ</title>
+    <!-- ブラウザのタブに表示されるページのタイトルです -->
+
+    <!-- スタイリングのためにTailwind CSSを読み込みます -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google FontsからInterフォントを読み込みます -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* フォントをページ全体に適用します */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* JavaScriptで追加するメッセージ用のスタイル */
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+    <!-- <body>セクションには、実際にブラウザに表示されるコンテンツを記述します -->
+
+    <div class="container mx-auto mt-10 p-8 bg-white max-w-2xl rounded-lg shadow-md">
+        <!-- ページのコンテンツをまとめるコンテナです -->
+
+        <h1 id="main-heading" class="text-3xl font-bold text-gray-800 mb-4">
+            ようこそ！
+        </h1>
+
+        <p class="text-gray-600 mb-6">
+            これはJavaScriptとYouTube動画の埋め込みを組み合わせた、動的でリッチなページのサンプルです。
+        </p>
+
+        <!-- ===== ここからがYouTube動画のセクションです ===== -->
+        <h2 class="text-2xl font-bold text-gray-800 mb-3">
+            埋め込み動画 (YouTube)
+        </h2>
+        <p class="text-gray-600 mb-4">
+            下の動画はHTMLの<code class="bg-gray-200 p-1 rounded">&lt;iframe&gt;</code>タグを使って埋め込まれています。
+        </p>
+        
+        <!-- レスポンシブな16:9のアスペクト比を保つためのコンテナ -->
+        <div class="relative rounded-lg overflow-hidden shadow-md mb-6" style="padding-top: 56.25%;"> <!-- 16:9 Aspect Ratio -->
+            <!-- YouTubeの埋め込み用iframe -->
+            <iframe class="absolute top-0 left-0 w-full h-full" 
+                    src="https://www.youtube.com/embed/etXLyJ3kOCU" 
+                    title="YouTube video player" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+            </iframe>
+        </div>
+        <!-- ===== 動画のセクションはここまでです ===== -->
+
+
+        <h2 class="text-2xl font-bold text-gray-800 mb-3">
+            インタラクション
+        </h2>
+        <p class="text-gray-600 mb-6">
+            下のボタンをクリックすると、ページの見出しが変化し、メッセージが表示されます。
+        </p>
+
+        <button id="action-button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-colors duration-300">
+            ここをクリック
+        </button>
+
+        <div id="message-area" class="mt-6"></div>
+    </div>
+
+    <!-- ===== JavaScriptのコードです ===== -->
+    <script>
+        const mainHeading = document.getElementById('main-heading');
+        const actionButton = document.getElementById('action-button');
+        const messageArea = document.getElementById('message-area');
+
+        actionButton.addEventListener('click', function() {
+            mainHeading.textContent = 'ボタンがクリックされました！';
+            messageArea.innerHTML = '';
+            const newMessage = document.createElement('p');
+            newMessage.textContent = 'これはJavaScriptによって動的に追加されたテキストです。';
+            newMessage.className = 'text-green-700 bg-green-100 p-4 rounded-lg fade-in';
+            messageArea.appendChild(newMessage);
+            actionButton.textContent = 'ありがとう！';
+            actionButton.disabled = true;
+            actionButton.classList.remove('bg-blue-500', 'hover:bg-blue-700');
+            actionButton.classList.add('bg-gray-400', 'cursor-not-allowed');
+        });
+    </script>
+
+    <script>
+  (function(){
+    // --- 各要素の作成 ---
+    var widgetContainer = document.createElement('div');
+    widgetContainer.id = 'area-5e74be00';
+
+    var title = document.createElement('p');
+    title.innerText = '💬 HelpNAVi';
+
+    var iframe = document.createElement('iframe');
+    iframe.id = 'frame-5e74be00';
+    iframe.classList.add('close-5e74be00');
+    iframe.allow = "microphone *";
+
+    // --- 入力欄とボタンの作成 ---
+    var inputContainer = document.createElement('div');
+    inputContainer.id = 'input-container-5e74be00';
+
+    var inputField = document.createElement('input');
+    inputField.type = 'text';
+    inputField.placeholder = 'ご質問をどうぞ...';
+    inputField.id = 'chat-input-5e74be00';
+
+    var openButton = document.createElement('button');
+    openButton.id = 'chat-open-button-5e74be00';
+    openButton.innerText = 'チャットを開始';
+
+    // --- 要素の組み立て ---
+    inputContainer.appendChild(inputField);
+    inputContainer.appendChild(openButton);
+
+    widgetContainer.appendChild(title);
+    widgetContainer.appendChild(inputContainer);
+    widgetContainer.appendChild(iframe);
+
+    // --- イベントリスナーの設定 ---
+    // 「チャットを開始」ボタンのクリックイベント
+    openButton.addEventListener('click', function(event) {
+      event.stopPropagation(); // 親要素へのイベント伝播を停止
+      
+      var _f = document.getElementById('frame-5e74be00');
+      if (_f.src === '') {
+        _f.src = 'https://ijuken.com/faq/user/client/cbts-travel';
+      }
+      
+      // iframeを表示し、入力欄を非表示にする
+      _f.classList.remove('close-5e74be00');
+      document.getElementById('input-container-5e74be00').style.display = 'none';
+      
+      // タイトルをクリックで閉じられるように案内
+      title.innerText = '💬 HelpNAVi (クリックで閉じる)';
+    });
+
+    // タイトル部分をクリックしてチャットを閉じるイベント
+    title.addEventListener('click', function() {
+      var _f = document.getElementById('frame-5e74be00');
+      // iframeが開いている場合のみ動作
+      if (!_f.classList.contains('close-5e74be00')) {
+        _f.classList.add('close-5e74be00');
+        document.getElementById('input-container-5e74be00').style.display = 'block';
+        title.innerText = '💬 HelpNAVi'; // タイトルを元に戻す
+      }
+    });
+
+    document.body.appendChild(widgetContainer);
+  })();
+</script>
+<style>
+  #area-5e74be00 {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    z-index: 9999;
+    border: 5px solid #2563eb;
+    border-radius: 10px;
+    /* cursor: pointer; はタイトルに移動 */
+    background-color: #fff;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease-in-out;
+    width: 360px; /* iframeの幅(350px) + border(5px*2) */
+    box-sizing: border-box;
+  }
+  #area-5e74be00:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  #area-5e74be00:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  #area-5e74be00 > p {
+    text-align: center;
+    color: #fff;
+    padding: 3px 10px;
+    margin: 0;
+    font-weight: bold;
+    background-color: #2563eb;
+    cursor: pointer; /* 閉じる操作ができることを示す */
+  }
+  #frame-5e74be00 {
+    width: 100%; /* 親要素の幅に合わせる */
+    border: none;
+    display: block; /* アニメーションとマージンのためにblock要素にする */
+    box-sizing: border-box;
+    /* --- アニメーションのためのスタイル --- */
+    height: calc(70vh - 5px); /* heightはレイアウト安定のために維持 */
+    overflow: hidden; /* max-heightアニメーションに必須 */
+    transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out, margin-top 0.4s ease-in-out;
+    opacity: 1;
+    max-height: 70vh; /* 開いた状態の高さ */
+    margin-top: 5px; /* ヘッダーとの間に少し余白を追加 */
+  }
+  #frame-5e74be00.close-5e74be00 {
+    opacity: 0;
+    max-height: 0;
+    margin-top: 0;
+  }
+  /* --- 入力欄関連のスタイル --- */
+  #input-container-5e74be00 {
+    padding: 15px;
+    display: block; /* 初期表示 */
+  }
+  #chat-input-5e74be00 {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  #chat-open-button-5e74be00 {
+    width: 100%;
+    padding: 12px;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background-color 0.2s;
+  }
+  #chat-open-button-5e74be00:hover {
+    background-color: #1d4ed8;
+  }
+</style>
+
+
+</body>
+</html>
