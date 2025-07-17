@@ -101,20 +101,6 @@
     a.appendChild(f);
     a.addEventListener('click', function(){
       var _f = document.getElementById('frame-0e5793e1');
-      var closeBtn = document.getElementById('close-button');
-      var maximizeBtn = document.getElementById('maximize-button');
-
-      if (!closeBtn) {
-        closeBtn = createButton('閉じる', 'close-button');
-        a.insertBefore(closeBtn, f);
-        closeBtn.addEventListener('click', closeIframe);
-      }
-
-      if (!maximizeBtn) {
-        maximizeBtn = createButton('最大化', 'maximize-button');
-        a.insertBefore(maximizeBtn, f);
-        maximizeBtn.addEventListener('click', toggleMaximize);
-      }
       if (_f.src == '') {
         _f.src = 'https://ijuken.com/faq/user/client/helpnavi';
       }
@@ -129,39 +115,6 @@
     });
     document.body.appendChild(a);
   })();
-
-  function createButton(text, id) {
-    var button = document.createElement('button');
-    button.innerText = text;
-    button.id = id;
-    button.style.backgroundColor = '#00afec';
-    button.style.color = '#ffffff';
-    button.style.padding = '5px 10px';
-    button.style.margin = '0 5px';
-    button.style.border = 'none';
-    button.style.borderRadius = '5px';
-    button.style.cursor = 'pointer';
-    return button;
-  }
-
-  function closeIframe(event) {
-    event.stopPropagation();
-    var _a = document.getElementById('area-0e5793e1');
-    _a.classList.remove('open-0e5793e1');
-    _a.classList.add('close-0e5793e1');
-  }
-
-  function toggleMaximize(event) {
-    event.stopPropagation();
-    var _a = document.getElementById('area-0e5793e1');
-    _a.classList.toggle('maximized');
-    var _f = document.getElementById('frame-0e5793e1');
-    if (_a.classList.contains('maximized')) {
-      _f.style.height = '90vh';
-    } else {
-      _f.style.height = 'calc(70vh - 5px)';
-    }
-  }
 </script>
 <style>
   #area-0e5793e1 {
@@ -209,10 +162,6 @@
     padding: 30px 15px;
     min-width: auto;
     word-break: break-all;
-  }
-  #area-0e5793e1.maximized {
-    width: 90vw;
-    height: 90vh;
   }
 </style>
 </body>
