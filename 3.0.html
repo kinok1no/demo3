@@ -87,37 +87,37 @@
 <script>
   (function(){
     var a = document.createElement('div');
-    a.id = 'area-0e5793e1';
-    a.classList.add('close-0e5793e1');
+    a.id = 'area-21b47162';
+    a.classList.add('close-21b47162');
     var f = document.createElement('iframe');
-    f.id = 'frame-0e5793e1';
+    f.id = 'frame-21b47162';
     f.allow = "microphone *";
     var t = document.createElement('p');
-    t.innerText = 'HelpNAViに質問する'
+    t.innerText = ''
     a.appendChild(t);
     var d = document.createElement('div');
     d.innerText = '質問を入力してください'
     a.appendChild(d);
     a.appendChild(f);
     a.addEventListener('click', function(){
-      var _f = document.getElementById('frame-0e5793e1');
+      var _f = document.getElementById('frame-21b47162');
       if (_f.src == '') {
-        _f.src = 'https://ijuken.com/faq/user/client/helpnavi';
+        _f.src = 'https://dev.ijuken.com/faq/user/client/nobudemo_3';
       }
-      var _a = document.getElementById('area-0e5793e1');
-      if (_a.classList.contains('close-0e5793e1')) {
-        _a.classList.remove('close-0e5793e1');
-        _a.classList.add('open-0e5793e1');
+      var _a = document.getElementById('area-21b47162');
+      if (_a.classList.contains('close-21b47162')) {
+        _a.classList.remove('close-21b47162');
+        _a.classList.add('open-21b47162');
       } else {
-        _a.classList.remove('open-0e5793e1');
-        _a.classList.add('close-0e5793e1');
+        _a.classList.remove('open-21b47162');
+        _a.classList.add('close-21b47162');
       }
     });
     document.body.appendChild(a);
   })();
 </script>
 <style>
-  #area-0e5793e1 {
+  #area-21b47162 {
     position: fixed;
     right: 10px;
     bottom: 10px;
@@ -126,7 +126,7 @@
     border-radius: 5px;
     cursor: pointer;
   }
-  #area-0e5793e1 > p {
+  #area-21b47162 > p {
     text-align: center;
     color: #ffffff;
     padding: 5px 10px;
@@ -136,28 +136,28 @@
     max-width: 320px;
     min-width: 200px;
   }
-  #area-0e5793e1 > div {
+  #area-21b47162 > div {
     color: #888888;
     padding: 5px 10px;
     margin: 0;
     background-color: #ffffff;
   }
-  #frame-0e5793e1 {
+  #frame-21b47162 {
     width: 320px;
     height: calc(70vh - 5px);
     border: none;
     display: block;
   }
-  #area-0e5793e1.close-0e5793e1 #frame-0e5793e1 {
+  #area-21b47162.close-21b47162 #frame-21b47162 {
     display: none;
   }
-  #area-0e5793e1.open-0e5793e1 > div {
+  #area-21b47162.open-21b47162 > div {
     display: none;
   }
-  #area-0e5793e1.from-right-0e5793e1.close-0e5793e1 {
+  #area-21b47162.from-right-21b47162.close-21b47162 {
     right: 0;
   }
-  #area-0e5793e1.from-right-0e5793e1.close-0e5793e1 > p {
+  #area-21b47162.from-right-21b47162.close-21b47162 > p {
     width: 40px;
     padding: 30px 15px;
     min-width: auto;
@@ -166,3 +166,4 @@
 </style>
 </body>
 </html>
+
