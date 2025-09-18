@@ -96,7 +96,51 @@
     var t = document.createElement('span');
     t.innerText = 'お問い合わせ'
     var c = document.createElement('a');
-    c.innerHTML = '&times;'
+    c.innerHTML = '&#10006;'
+    c.href = "#";
+    e.appendChild(t);
+    e.appendChild(c);
+    a.appendChild(e);
+    var d = document.createElement('div');
+    d.innerText = '質問を入力してください'
+    a.appendChild(d);
+    a.appendChild(f);
+    a.addEventListener('click', function(){
+      var _f = document.getElementById('frame-e03f3217');
+      if (_f.src == '') {
+        _f.src = 'https://dev.ijuken.com/faq/user/client/demo_dxpo';
+      }
+      var _a = document.getElementById('area-e03f3217');
+      if (_a.classList.contains('close-e03f3217')) {
+        _a.classList.remove('close-e03f3217');
+        _a.classList.add('open-e03f3217');
+      }
+    });
+    c.addEventListener('click', function(e){
+      var _a = document.getElementById('area-e03f3217');
+      if (_a.classList.contains('open-e03f3217')) {
+        _a.classList.remove('open-e03f3217');
+        _a.classList.add('close-e03f3217');
+      }
+      e.preventDefault();
+      e.stopPropagation();
+    });
+    document.body.appendChild(a);
+  })();
+</script>
+<script>
+  (function(){
+    var a = document.createElement('div');
+    a.id = 'area-e03f3217';
+    a.classList.add('close-e03f3217');
+    var f = document.createElement('iframe');
+    f.id = 'frame-e03f3217';
+    f.allow = "microphone *";
+    var e = document.createElement('p');
+    var t = document.createElement('span');
+    t.innerText = 'お問い合わせ'
+    var c = document.createElement('a');
+    c.innerHTML = '&#10006;'
     c.href = "#";
     e.appendChild(t);
     e.appendChild(c);
@@ -194,5 +238,6 @@
 </style>
 </body>
 </html>
+
 
 
