@@ -87,37 +87,49 @@
 <script>
   (function(){
     var a = document.createElement('div');
-    a.id = 'area-21b47162';
-    a.classList.add('close-21b47162');
+    a.id = 'area-e03f3217';
+    a.classList.add('close-e03f3217');
     var f = document.createElement('iframe');
-    f.id = 'frame-21b47162';
+    f.id = 'frame-e03f3217';
     f.allow = "microphone *";
-    var t = document.createElement('p');
-    t.innerText = ''
-    a.appendChild(t);
+    var e = document.createElement('p');
+    var t = document.createElement('span');
+    t.innerText = 'お問い合わせ'
+    var c = document.createElement('a');
+    c.innerHTML = '&times;'
+    c.href = "#";
+    e.appendChild(t);
+    e.appendChild(c);
+    a.appendChild(e);
     var d = document.createElement('div');
     d.innerText = '質問を入力してください'
     a.appendChild(d);
     a.appendChild(f);
     a.addEventListener('click', function(){
-      var _f = document.getElementById('frame-21b47162');
+      var _f = document.getElementById('frame-e03f3217');
       if (_f.src == '') {
-        _f.src = 'https://dev.ijuken.com/faq/user/client/nobudemo_3';
+        _f.src = 'https://dev.ijuken.com/faq/user/client/demo_dxpo';
       }
-      var _a = document.getElementById('area-21b47162');
-      if (_a.classList.contains('close-21b47162')) {
-        _a.classList.remove('close-21b47162');
-        _a.classList.add('open-21b47162');
-      } else {
-        _a.classList.remove('open-21b47162');
-        _a.classList.add('close-21b47162');
+      var _a = document.getElementById('area-e03f3217');
+      if (_a.classList.contains('close-e03f3217')) {
+        _a.classList.remove('close-e03f3217');
+        _a.classList.add('open-e03f3217');
       }
+    });
+    c.addEventListener('click', function(e){
+      var _a = document.getElementById('area-e03f3217');
+      if (_a.classList.contains('open-e03f3217')) {
+        _a.classList.remove('open-e03f3217');
+        _a.classList.add('close-e03f3217');
+      }
+      e.preventDefault();
+      e.stopPropagation();
     });
     document.body.appendChild(a);
   })();
 </script>
 <style>
-  #area-21b47162 {
+  #area-e03f3217 {
     position: fixed;
     right: 10px;
     bottom: 10px;
@@ -126,7 +138,10 @@
     border-radius: 5px;
     cursor: pointer;
   }
-  #area-21b47162 > p {
+  #area-e03f3217.open-e03f3217 {
+    cursor: default;
+  }
+  #area-e03f3217 > p {
     text-align: center;
     color: #ffffff;
     padding: 5px 10px;
@@ -135,29 +150,42 @@
     background-color: #00afec;
     max-width: 320px;
     min-width: 200px;
+    display: flex;
   }
-  #area-21b47162 > div {
+  #area-e03f3217 > p > span {
+    margin-left: auto;
+  }
+  #area-e03f3217 > p > a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    margin-left: auto;
+  }
+  #area-e03f3217.close-e03f3217 > p > a {
+    visibility: hidden;
+  }
+  #area-e03f3217 > div {
     color: #888888;
     padding: 5px 10px;
     margin: 0;
     background-color: #ffffff;
   }
-  #frame-21b47162 {
+  #frame-e03f3217 {
     width: 320px;
     height: calc(70vh - 5px);
     border: none;
     display: block;
   }
-  #area-21b47162.close-21b47162 #frame-21b47162 {
+  #area-e03f3217.close-e03f3217 #frame-e03f3217 {
     display: none;
   }
-  #area-21b47162.open-21b47162 > div {
+  #area-e03f3217.open-e03f3217 > div {
     display: none;
   }
-  #area-21b47162.from-right-21b47162.close-21b47162 {
+  #area-e03f3217.from-right-e03f3217.close-e03f3217 {
     right: 0;
   }
-  #area-21b47162.from-right-21b47162.close-21b47162 > p {
+  #area-e03f3217.from-right-e03f3217.close-e03f3217 > p {
     width: 40px;
     padding: 30px 15px;
     min-width: auto;
@@ -166,4 +194,5 @@
 </style>
 </body>
 </html>
+
 
